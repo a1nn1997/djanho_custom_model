@@ -27,9 +27,16 @@ from .models import Post,Category
 # admin.site.register(Post, PostAdmin)
 
     #way 2
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    fields=['title','author']
+# @admin.register(Post)
+# class PostAdmin(admin.ModelAdmin):
+#     fields=['title','author']
 
-#admin.site.register(Post, PostAdmin)
+import django.apps
 
+models = django.apps.apps.get_models()
+#print(models)
+for model in models:
+    try:
+        admin.site.register(model)
+    except admin.sites.AlreadyRegistered:
+        pass
