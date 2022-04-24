@@ -21,7 +21,15 @@ from .models import Post,Category
 # part 2
 
     # way 1
+# class PostAdmin(admin.ModelAdmin):
+#     fields=['title','author']
+
+# admin.site.register(Post, PostAdmin)
+
+    #way 2
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     fields=['title','author']
 
-admin.site.register(Post, PostAdmin)
+#admin.site.register(Post, PostAdmin)
+
