@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blog.admin import blog_site
-from bookstore.admin import bookstore_site
+#from bookstore.admin import bookstore_site
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin1/', blog_site.urls),
-    path('admin2/', bookstore_site.urls),
+    #path('admin2/', bookstore_site.urls),
     path('',include('blog.urls',namespace='blog')),
     path('summernote/', include('django_summernote.urls')),    
 
