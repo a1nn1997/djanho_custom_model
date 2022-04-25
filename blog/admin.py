@@ -1,6 +1,7 @@
 from dataclasses import field
 from django.contrib import admin
 from .models import Post,Category
+from  django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 
 #  part 1
@@ -10,9 +11,14 @@ class BlogAdminArea(admin.AdminSite):
 
 blog_site = BlogAdminArea(name='BlogAdmin')
 
-#admin.site.register(Post)
+class SummerAdmin(SummernoteModelAdmin):
+    summernote_fields = '__all__'
 
-blog_site.register(Post)
+
+
+admin.site.register(Post , SummerAdmin)
+
+blog_site.register(Post , SummerAdmin)
 
 #admin.site.register(Category)
 
